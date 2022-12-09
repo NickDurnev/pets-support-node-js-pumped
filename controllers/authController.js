@@ -49,7 +49,8 @@ const loginController = async (req, res, next) => {
   res.json({
     code: 200,
     data: {
-      token: result,
+      token: result.token,
+      email: result.email,
     },
   });
 };

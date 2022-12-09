@@ -34,7 +34,8 @@ const login = async (email, password) => {
     id: user.id,
     email: user.email,
   };
-  return await addToken(payload);
+  const token = await addToken(payload);
+  return { token, email };
 };
 
 // Выход юзера

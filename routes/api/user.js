@@ -3,7 +3,7 @@ const { userController } = require('../../controllers');
 const {
   authentificate,
   petsValidation,
-  updateUsersValidation,
+  userValidation,
   fileLoader,
 } = require('../../middlewares');
 const { ctrlWrapper, upload } = require('../../helpers');
@@ -23,11 +23,11 @@ const {
 
 router.get('/info', authentificate, ctrlWrapper(getUser)); // Роут отримання особистої інфо користувача
 router.get('/pets', authentificate, ctrlWrapper(getPets)); // Роут для отримання інфо о тваринах користувача
-router.patch(
+router.put(
   '/info',
   authentificate,
   upload.single('avatar'),
-  updateUsersValidation,
+  userValidation,
   ctrlWrapper(updateUser),
   ctrlWrapper(fileLoader),
   ctrlWrapper(addAvatar)
